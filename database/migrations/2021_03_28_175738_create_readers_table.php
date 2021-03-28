@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReadingsTable extends Migration
+class CreateReadersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateReadingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('readings', function (Blueprint $table) {
+        Schema::create('readers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('reader_id');
-            $table->string('value');
+            $table->string('name');
+            $table->string('location');
             $table->timestamps();
-            $table->index('reader_id');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateReadingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('readings');
+        Schema::dropIfExists('readers');
     }
 }

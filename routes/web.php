@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ReadingsController;
+use App\Http\Controllers\ReadersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,13 @@ Route::post('/readings', [ReadingsController::class, 'store'])->name('readings.s
 Route::get('/readings/{reading}', [ReadingsController::class, 'show'])->name('readings.show');
 Route::get('/readings/{reading}/edit', [ReadingsController::class, 'edit'])->name('readings.edit');
 Route::patch('/readings/{reading}', [ReadingsController::class, 'update'])->name('readings.update');
+
+Route::get('/readers', [ReadersController::class, 'index'])->name('readers.index');
+Route::get('/readers/create', [ReadersController::class, 'create'])->name('readers.create');
+Route::post('/readers', [ReadersController::class, 'store'])->name('readers.store');
+Route::get('/readers/{reader}', [ReadersController::class, 'show'])->name('readers.show');
+Route::get('/readers/{reader}/edit', [ReadersController::class, 'edit'])->name('readers.edit');
+Route::patch('/readers/{reader}', [ReadersController::class, 'update'])->name('readers.update');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
