@@ -6,6 +6,13 @@ Running The Scheduler Locally:
 
     php artisan schedule:work
 
+### Fix Laravel Mysql 8 Authentication Method Error
+
+Mysql:
+
+    mysql --default-auth=mysql_native_password -p
+    ALTER USER 'sail'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+
 ## Deployment
 
 Add a single cron configuration entry to server that runs the schedule:run command every minute:
