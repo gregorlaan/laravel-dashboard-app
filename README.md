@@ -2,6 +2,14 @@
 
 ## Dev Notes
 
+Create sqlite database:
+
+    touch database/database.sqlite
+
+Run Sail:
+
+    ./vendor/bin/sail up
+
 Running The Scheduler Locally:
 
     php artisan schedule:work
