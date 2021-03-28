@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGasMeterReadingsTable extends Migration
+class CreateReadingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGasMeterReadingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gas_meter_readings', function (Blueprint $table) {
+        Schema::create('readings', function (Blueprint $table) {
             $table->id();
             $table->string('value');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGasMeterReadingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gas_meter_readings');
+        Schema::dropIfExists('readings');
     }
 }

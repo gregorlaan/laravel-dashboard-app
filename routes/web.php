@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ReadingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,13 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/readings', [ReadingsController::class, 'index'])->name('readings.index');
+Route::get('/readings/create', [ReadingsController::class, 'create'])->name('readings.create');
+Route::post('/readings', [ReadingsController::class, 'store'])->name('readings.store');
+Route::get('/readings/{reading}', [ReadingsController::class, 'show'])->name('readings.show');
+Route::get('/readings/{reading}/edit', [ReadingsController::class, 'edit'])->name('readings.edit');
+Route::patch('/readings/{reading}', [ReadingsController::class, 'update'])->name('readings.update');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
