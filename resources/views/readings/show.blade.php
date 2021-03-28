@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Reading') }}: <b>#{{ $reading->id }}</b>
             </h2>
-            <x-button-link class="ml-4" href="{{ route('readings.edit', $reading->id) }}">
+            <x-button-link class="ml-4" :href="route('readings.edit', $reading->id)">
                 {{ __('Edit') }}
             </x-button-link>
         </div>

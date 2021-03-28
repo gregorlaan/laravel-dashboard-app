@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Readings') }}
             </h2>
-            <x-button-link class="ml-4" href="{{ route('readings.create') }}">
+            <x-button-link class="ml-4" :href="route('readings.create')">
                 {{ __('Add New') }}
             </x-button-link>
         </div>
@@ -43,10 +43,10 @@
                             </div>
 
                             <div class="flex flex-wrap justify-end md:w-1/4 w-full">
-                                <x-button-link class="md:ml-4 self-center md:w-auto w-full mt-2 md:mt-0" href="{{ route('readings.show', $reading->id) }}">
+                                <x-button-link class="md:ml-4 self-center md:w-auto w-full mt-2 md:mt-0" :href="route('readings.show', $reading->id)">
                                     {{ __('View') }}
                                 </x-button-link>
-                                <x-button-link class="md:ml-4 self-center md:w-auto w-full mt-2 md:mt-0" href="{{ route('readings.edit', $reading->id) }}">
+                                <x-button-link class="md:ml-4 self-center md:w-auto w-full mt-2 md:mt-0" :href="route('readings.edit', $reading->id)">
                                     {{ __('Edit') }}
                                 </x-button-link>
                             </div>
