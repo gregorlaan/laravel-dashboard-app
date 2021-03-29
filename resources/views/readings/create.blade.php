@@ -16,6 +16,21 @@
                     <form method="POST" action="{{ route('readings.store') }}">
                         @csrf
 
+                        <div>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="reader">
+                                Reader
+                            </label>
+                            <div class="relative">
+                                <select required id="reader" name="reader" class="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                    @foreach ($readers as $reader)
+                                        <option value="{{ $reader->id }}">{{ $reader->name }} ({{ $reader->location }})</option>
+                                    @endforeach
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Value -->
                         <div>
                             <x-label for="value" :value="__('Value')" />

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Reader;
 
-class Readings extends Model
+class Reading extends Model
 {
     use HasFactory;
 

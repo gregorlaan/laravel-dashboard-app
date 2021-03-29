@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Readings;
-use App\Models\ReaderLogs;
+use App\Models\Reading;
+use App\Models\ReaderLog;
 
-class Readers extends Model
+class Reader extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,11 @@ class Readers extends Model
 
     public function readings()
     {
-        return $this->hasOne(Readings::class)->orderBy('created_at', 'DESC');
+        return $this->hasOne(Reading::class)->orderBy('created_at', 'DESC');
     }
 
     public function logs()
     {
-        return $this->hasMany(ReaderLogs::class)->orderBy('created_at', 'DESC');
+        return $this->hasMany(ReaderLog::class)->orderBy('created_at', 'DESC');
     }
 }

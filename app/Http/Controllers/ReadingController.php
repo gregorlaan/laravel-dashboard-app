@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Readers;
+use App\Models\Reading;
+use App\Models\Reader;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 
-class ReadersController extends Controller
+class ReadingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class ReadersController extends Controller
      */
     public function index()
     {
-        $readers = Readers::all();
-        return view('readers.index', compact('readers'));
+        $readings = Reading::all();
+        return view('readings.index', compact('readings'));
     }
 
     /**
@@ -26,7 +27,8 @@ class ReadersController extends Controller
      */
     public function create()
     {
-        return view('readers.create');
+        $readers = Reader::all();
+        return view('readings.create', compact('readers'));
     }
 
     /**
@@ -38,63 +40,64 @@ class ReadersController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-            'name' => 'required',
-            'location' => 'required',
+            'value' => 'required',
+            'reader' => 'required',
         ]);
 
-        Readers::create($data);
 
-        return redirect(route('readers.index'));
+        $reader = Reader::find($data['reader']);
+        $reader->readings()->create($data);
+
+        return redirect(route('readings.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Readers  $reader
+     * @param  \App\Models\Reading  $reading
      * @return \Illuminate\Http\Response
      */
-    public function show(Readers $reader)
+    public function show(Reading $reading)
     {
-        return view('readers.show', compact('reader'));
+        return view('readings.show', compact('reading'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Readers  $reader
+     * @param  \App\Models\Reading  $reading
      * @return \Illuminate\Http\Response
      */
-    public function edit(Readers $reader)
+    public function edit(Reading $reading)
     {
-        return view('readers.edit', compact('reader'));
+        return view('readings.edit', compact('reading'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Readers  $readers
+     * @param  \App\Models\Reading  $readings
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Readers $reader)
+    public function update(Request $request, Reading $reading)
     {
         $data = request()->validate([
-            'name' => 'required',
-            'location' => 'required',
+            'value' => 'required',
         ]);
 
-        $reader->update($data);
+        $reading->update($data);
 
-        return redirect(route('readers.show', $reader->id));
+        return redirect(route('readings.show', $reading->id));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Readers  $readers
+     * @param  \App\Models\Reading  $readings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Readers $readers)
+    public function destroy(Reading $readings)
     {
         //
     }
