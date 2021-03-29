@@ -9,6 +9,16 @@ use App\Providers\RouteServiceProvider;
 class ReaderController extends Controller
 {
     /**
+     * Constructor
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
