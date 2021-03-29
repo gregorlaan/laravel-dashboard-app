@@ -15,13 +15,24 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <div class="hidden md:flex flex-wrap justify-between w-3/4">
-                        <b class="w-full md:w-2/12">ID</b>
-                        <b class="w-full md:w-2/12 text-center">Created at</b>
-                        <b class="w-full md:w-2/12 text-center">Updated at</b>
-                        <b class="w-full md:w-3/12 text-center">Name</b>
-                        <b class="w-full md:w-3/12 text-center">Location</b>
-                    </div>
+                    @if (count($readers))
+                        <div class="hidden md:flex flex-wrap justify-between w-3/4">
+                            <b class="w-full md:w-2/12">ID</b>
+                            <b class="w-full md:w-2/12 text-center">Created at</b>
+                            <b class="w-full md:w-2/12 text-center">Updated at</b>
+                            <b class="w-full md:w-3/12 text-center">Name</b>
+                            <b class="w-full md:w-3/12 text-center">Location</b>
+                        </div>
+                    @else
+                        <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4" role="alert">
+                            <p class="font-bold">No Readers here!</p>
+                            <p>You can add a new one from here:
+                            <x-button-text-link :href="route('readers.create')">
+                                {{ __('Add New') }}
+                            </x-button-text-link>
+                            </p>
+                        </div>
+                    @endif
 
                     @foreach ($readers as $reader)
 

@@ -10,7 +10,7 @@ class ReaderLogs extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['old_value', 'new_value'];
+    protected $fillable = ['value'];
 
     public function Reader()
     {
