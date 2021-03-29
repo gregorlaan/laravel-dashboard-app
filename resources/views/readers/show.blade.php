@@ -91,10 +91,12 @@
                                 </x-button-link>
                             </div>
                         </div>
-                    </div>
+
+                    @endforeach
+
                 </div>
             </div>
+        </div>
 
-        @endforeach
     </div>
 </x-app-layout>
