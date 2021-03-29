@@ -16,11 +16,6 @@
                 <div class="p-6 bg-white border-b border-gray-200 text-center flex">
 
                     <div class="w-full md:w-1/4">
-                        <p class="text-xs">Created at</p>
-                        <p class="text-xl">{{ $reader->created_at }}</p>
-                    </div>
-
-                    <div class="w-full md:w-1/4">
                         <p class="text-xs">Name</p>
                         <p class="text-xl">{{ $reader->name }}</p>
                     </div>
@@ -28,6 +23,11 @@
                     <div class="w-full md:w-1/4">
                         <p class="text-xs">Location</p>
                         <p class="text-xl">{{ $reader->location }}</p>
+                    </div>
+
+                    <div class="w-full md:w-1/4">
+                        <p class="text-xs">Created at</p>
+                        <p class="text-xl">{{ $reader->created_at }}</p>
                     </div>
 
                     <div class="w-full md:w-1/4">

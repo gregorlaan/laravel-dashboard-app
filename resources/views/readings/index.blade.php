@@ -17,10 +17,10 @@
 
                     @if (count($readings))
                         <div class="hidden md:flex flex-wrap justify-between w-3/4">
-                            <b class="w-full md:w-3/12">ID</b>
-                            <b class="w-full md:w-3/12 text-center">Created at</b>
-                            <b class="w-full md:w-3/12 text-center">Updated at</b>
-                            <b class="w-full md:w-3/12 text-center">Value</b>
+                            <b class="w-full md:w-1/12">ID</b>
+                            <b class="w-full md:w-3/12 text-center">Time</b>
+                            <b class="w-full md:w-4/12 text-center">Location</b>
+                            <b class="w-full md:w-4/12 text-center">Value</b>
                         </div>
                     @else
                         <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4" role="alert">
@@ -38,16 +38,18 @@
                         <div class="flex flex-wrap justify-between mt-4 mb-4 bg-gray-100 p-3">
 
                             <div class="flex flex-wrap items-center md:w-3/4 w-full">
-                                <span class="w-full md:w-3/12 md:text-left text-center p-2 md:border-0 border-b-2 border-gray-200"> #{{ $reading->id }} </span>
+                                <span class="w-full md:w-1/12 md:text-left text-center p-2 md:border-0 border-b-2 border-gray-200"> #{{ $reading->id }} </span>
                                 <span class="w-full md:w-3/12 text-center p-2 md:border-0 border-b-2  border-gray-200">
-                                    <span class="md:hidden block">Created at</span>
-                                    {{ $reading->created_at }}
+                                    <span class="md:hidden block">Time</span>
+                                    <p title="Updated at: {{ $reading->updated_at }}">{{ $reading->created_at }}</p>
                                 </span>
-                                <span class="w-full md:w-3/12 text-center p-2 md:border-0 border-b-2  border-gray-200">
-                                <span class="md:hidden block">Updated at</span>
-                                    {{ $reading->updated_at }}
+                                <span class="w-full md:w-4/12 text-center p-2 md:border-0 border-b-2  border-gray-200">
+                                <span class="md:hidden block">Location</span>
+                                    <x-button-text-link :href="route('readers.show', $reading->reader->id)">
+                                        {{ $reading->reader->location }}
+                                    </x-button-text-link>
                                 </span>
-                                <span class="w-full md:w-3/12 text-center p-2">
+                                <span class="w-full md:w-4/12 text-center p-2">
                                     <span class="md:hidden block">Value</span>
                                     {{ $reading->value }}
                                 </span>
