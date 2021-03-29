@@ -45,12 +45,8 @@ class GenerateReading extends Command
             $lastVal = $reader->readings()->get()->first()->value ?? 0;
             $nextVal = $lastVal + 25;
             $reader->readings()->create(['value' => $nextVal]);
-
-/*             foreach ($reader->readings()->get() as $reading) {
-                print_r($reading->value);
-            } */
         }
 
-        return;
+        return true;
     }
 }

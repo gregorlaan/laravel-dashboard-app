@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\GenerateReading::class,
     ];
 
     /**
@@ -24,7 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // $schedule->command('generate:reading')->hourly();
+        // For testing purpose we set the schedule time to every 5 minutes
+        $schedule->command('generate:reading')->everyFiveMinutes();
     }
 
     /**
