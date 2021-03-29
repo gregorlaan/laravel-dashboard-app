@@ -70,6 +70,8 @@
 
                     @endforeach
 
+                    {{ $readers->links() }}
+
                 </div>
             </div>
         </div>

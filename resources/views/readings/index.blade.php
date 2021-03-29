@@ -67,6 +67,8 @@
 
                     @endforeach
 
+                    {{ $readings->links() }}
+
                 </div>
             </div>
         </div>

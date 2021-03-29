@@ -26,7 +26,7 @@ class ReadingController extends Controller
      */
     public function index()
     {
-        $readings = Reading::all();
+        $readings = Reading::paginate(5);
         return view('readings.index', compact('readings'));
     }
 
