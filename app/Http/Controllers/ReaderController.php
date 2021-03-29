@@ -55,7 +55,8 @@ class ReaderController extends Controller
      */
     public function show(Reader $reader)
     {
-        return view('readers.show', compact('reader'));
+        $readings = $reader->readings()->get();
+        return view('readers.show', compact('reader', 'readings'));
     }
 
     /**
