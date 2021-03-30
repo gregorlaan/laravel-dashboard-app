@@ -14,12 +14,19 @@ Running The Scheduler Locally:
 
     php artisan schedule:work
 
-### Fix Laravel Mysql 8 Authentication Method Error
 
-Mysql:
+### Example .env file
 
-    mysql --default-auth=mysql_native_password -p
-    ALTER USER 'sail'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+    APP_NAME=Laravel
+    APP_ENV=local
+    APP_KEY=base64:rMSznlowZ1Z2p1yPJ7tF0lrzoo2AzMhauaS29WTqA6Q=
+    APP_DEBUG=true
+    APP_URL=http://laravel-dashboard-app.test
+
+    LOG_CHANNEL=stack
+    LOG_LEVEL=debug
+
+    DB_CONNECTION=sqlite
 
 ## Deployment
 
